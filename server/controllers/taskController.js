@@ -10,6 +10,7 @@ export const createTask = async (req, res) => {
         const newTask = new Task({
             title,
             description,
+            status,
             userId: req.userId
         })
         await newTask.save();
