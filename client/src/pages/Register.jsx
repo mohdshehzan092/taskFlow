@@ -28,10 +28,11 @@ const Register = () => {
       console.log("Registration response:", data);
 
       if (data.user) {
-        navigate("/dashboard");
-      } else {
-        setError(data.message || "Registration failed");
-      }
+  localStorage.setItem("user", JSON.stringify(data.user));
+  navigate("/dashboard");
+} else {
+  setError(data.message || "Registration failed");
+}
     } catch (error) {
       console.log(error);
       setError("Unable to connect to the server. Please try again.");
